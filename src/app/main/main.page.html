@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Bluetooth</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<section class="found ion-margin" *ngIf="found">
+		<ion-list>
+			<ion-item (click)="select(device)" button *ngFor="let device of deviceFound">
+        <ion-icon slot="start" name="add"></ion-icon>
+				<ion-label>
+					<h1>{{device.name}}</h1>
+					<p>{{device.id}}</p>
+				</ion-label>
+			</ion-item>
+		</ion-list>
+	</section>
+	<section class="ion-margin">
+		<ion-button (click)="scan()" expand="block" fill="outline" color="dark">
+			{{deviceFound.length ? "Rescan" : "Scan"}}
+		</ion-button>
+	</section>
+</ion-content>
