@@ -15,8 +15,9 @@ This will setup your application for building to android
 
 In your file system's project folder, navigate to the file
 `node_modules/@ledgerhq/hw-transport-web-ble/lib-es/TransportWebBLE.js`
+*I know, you should never do this, just for testing*
 
-Change
+<b>Change</b>
 ```
 
 const requiresBluetooth = () => {
@@ -34,7 +35,7 @@ const requiresBluetooth = () => {
 
 ```
 
-*to*
+<b>To</b>
 
 ```
 const requiresBluetooth = () => {
@@ -53,12 +54,15 @@ const requiresBluetooth = () => {
 to match `src/app/app.component.ts`
 
 Run `$ ionic cordova build android --device -l`
-This will run an application to your phone, make *Note* Make sure it's connected with a data cable and debug mode is enabled
+This will run application in your device, <b>Note</b> Make sure it's connected with a data cable and debug mode is enabled
 
 ### Plan
-Since the library [@ledgerhq/hw-transport-web-ble](https://github.com/LedgerHQ/ledgerjs/tree/master/packages/hw-transport-web-ble) supports `navigator.bluetooth` 
+
+Since the library [@ledgerhq/hw-transport-web-ble](https://github.com/LedgerHQ/ledgerjs/tree/master/packages/hw-transport-web-ble) uses `navigator.bluetooth` 
 and [node-web-bluetooth](https://github.com/IjzerenHein/node-web-bluetooth) provides 
 the same APIs, I thought I could build the same
+
+So I wrote the same implementation checkout [src/app/ble](https://github.com/Jmunapo/ionic-hw-transport-ble/blob/master/src/app/ble/index.ts)
 
 ### Problem
 In the file `node_modules/@ledgerhq/hw-transport-web-ble/lib-es/TransportWebBLE.js`
